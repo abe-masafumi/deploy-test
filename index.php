@@ -5,7 +5,7 @@ $stmt->execute();
 $all_rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // echo json_encode($all_rows);
 
-$stack = array();
+$stack = (object) array();
 foreach ($all_rows as $key => $value) {
   $array = (object) array(
       "name" => "$value[u_name]",
@@ -13,6 +13,6 @@ foreach ($all_rows as $key => $value) {
   );
   array_push($stack, $array);
 }
-echo "<pre>";
+// echo "<pre>";
 echo json_encode($stack, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-echo "</pre>";
+// echo "</pre>";
